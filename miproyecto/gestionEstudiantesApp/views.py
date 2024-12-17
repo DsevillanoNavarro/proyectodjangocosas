@@ -51,12 +51,7 @@ def editar_inscripcion(request,pk):
         form = inscripcion_form(instance=inscripcion)
     return render(request, 'gestionEstudiantesApp/editarInscripciones.html',{"form":form,"pk":pk})
 
-def crear_curso(request):
-    return render(request,'gestionEstudiantesApp/crearCurso.html')
-def crear_estudiante(request):
-    return render(request,'gestionEstudiantesApp/crearEstudiante.html')
-def crear_inscripcion(request):
-    return render(request,'gestionEstudiantesApp/crearInscripcion.html')
+
 def delete_curso(request,pk):
     curso = get_object_or_404(Curso,pk=pk)
     if request.method == 'POST':
@@ -89,7 +84,7 @@ def crear_curso(request):
         form = curso_form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('principal')
+            return redirect('listar_cursos')
     else:
         form = curso_form()
     return render(request, 'gestionEstudiantesApp/curso_new.html',{"form":form})
@@ -99,7 +94,7 @@ def crear_estudiante(request):
         form = estudiante_form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('principal')
+            return redirect('listar_estudiantes')
     else:
         form = estudiante_form()
     return render(request, 'gestionEstudiantesApp/estudiante_new.html',{"form":form})
@@ -109,7 +104,7 @@ def crear_inscripcion(request):
         form = inscripcion_form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('principal')
+            return redirect('listar_inscripciones')
     else:
         form = inscripcion_form()
     return render(request, 'gestionEstudiantesApp/inscripcion_new.html',{"form":form})
