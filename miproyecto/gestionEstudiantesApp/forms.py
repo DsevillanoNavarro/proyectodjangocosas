@@ -7,11 +7,11 @@ class curso_form(forms.ModelForm):
     class Meta:
         model = Curso
         fields = '__all__'
-class estudiante_form(forms.Form):
+class estudiante_form(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = '__all__'
-class inscripcion_form(forms.Form):
+class inscripcion_form(forms.ModelForm):
     class Meta:
         model = Inscripcion
         fields = '__all__'

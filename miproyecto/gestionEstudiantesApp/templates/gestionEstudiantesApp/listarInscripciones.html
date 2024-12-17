@@ -1,12 +1,13 @@
-
+{% extends 'gestionEstudiantesApp/base.html' %}
 {% block titulo %}
     LISTADO INSCRIPCIONES
 {% endblock titulo %}
     
 {% block contenido %}
-<a href="{% url 'crear_inscripcion' %}"></a>
+
 {% for inscripcion in inscripciones %}
 <a href="{% url 'editar_inscripcion' pk=inscripcion.pk %}"><li>{{inscripcion}}</li></a>
 {% endfor %}
-
+<a href="{% url 'crear_inscripcion' %}">CREAR</a>
+<a href="{%url 'principal' %}">VOLVER</a>
 {% endblock contenido %}

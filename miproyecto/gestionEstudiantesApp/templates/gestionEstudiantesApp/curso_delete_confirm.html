@@ -1,0 +1,11 @@
+{% extends 'gestionEstudiantesApp/base.html' %}
+
+        {% block titulo %}CONFIRMAR BORRADO{% endblock %}
+        {% block contenido %}
+        <h2>Estás seguro de que quieres borrar a {{curso}}</h2>
+        <form action="" method="POST">
+                {% csrf_token %}
+                <button type="submit">SI</button>
+                <a href="{% url 'listar_cursos' %}"><input type="button" value="NO"></input></a>
+        </form>
+        {% endblock %}

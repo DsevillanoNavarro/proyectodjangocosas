@@ -1,0 +1,13 @@
+{% extends 'gestionEstudiantesApp/base.html' %}
+
+        {% block titulo %}EDITAR CURSO{% endblock %}
+        {% block contenido %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Agregar">
+        </form>
+        
+        <a href="{%url 'principal' %}">VOLVER</a>
+        <a href="{%url 'delete_curso' pk=pk %}">BORRAR</a>
+        {% endblock %}

@@ -9,16 +9,18 @@ class Curso(models.Model):
     fecha_inicio=models.DateField()
     fecha_fin= models.DateField()
     
-    def Clean(self):
+    def clean(self):
         if self.fecha_inicio > self.fecha_fin:
             raise ValidationError("La fecha de inicio a de ser anterior a la fecha fin")
         return super().clean()
+    def __str__(self):
+        return self.nombre
 class Estudiante(models.Model):
     nombre = models.TextField(max_length=100)
     email = models.EmailField()
     fecha_nacimiento= models.DateField()
     
-    def Clean(self):
+    def clean(self):
         if self.fecha_nacimiento > date.today():
             raise ValidationError("La fecha de nacimiento tiene que ser anterior al día actual")
         mayor_de_edad = (date.today()-self.fecha_nacimiento).days // 365.25
@@ -26,15 +28,18 @@ class Estudiante(models.Model):
             raise ValidationError("Tiene que tener 18 años")
         return super().clean()
         
-    
+    def __str__(self):
+        return self.nombre
 class Inscripcion(models.Model):
     estudiante= models.ForeignKey(Estudiante, on_delete=models.CASCADE, related_name="estudiantes")
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name="curso")
     fecha_inscripcion = models.DateField()
     
-    def Clean(self):
+    def clean(self):
         if self.fecha_inscripcion > self.curso.fecha_fin:
             raise ValidationError("El curso al que intenta inscribirse ha terminado")
         if self.fecha_inscripcion > date.today():
             raise ValidationError("La fecha de inscripcion tiene que ser anterior al día actual")
         return super().clean()
+    def __str__(self):
+        return self.estudiante.nombre +"  "+ self.curso.nombre

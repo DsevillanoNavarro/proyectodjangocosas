@@ -1,12 +1,13 @@
-
+{% extends 'gestionEstudiantesApp/base.html' %}
 {% block titulo %}
     LISTADO CURSOS
 {% endblock titulo %}
     
 {% block contenido %}
-<a href="{% url 'crear_curso' %}"></a>
+
 {% for curso in cursos %}
 <a href="{% url 'editar_curso' pk=curso.pk  %}"><li>{{curso}}</li></a>
 {% endfor %}
-
+<a href="{% url 'crear_curso' %}">CREAR</a>
+<a href="{%url 'principal' %}">VOLVER</a>
 {% endblock contenido %}
