@@ -12,3 +12,9 @@ def listar_estudiantes(request):
 def listar_inscripciones(request):
     inscripciones = Inscripcion.objects.all()
     return render(request,'gestionEstudiantesApp/listarInscripciones.html',{"inscripciones":inscripciones})
+def crear_curso(request):
+    return render(request,'gestionEstudiantesApp/crearCurso.html')
+def crear_estudiante(request):
+    return render(request,'gestionEstudiantesApp/crearEstudiante.html')
+def crear_inscripcion(request):
+    return render(request,'gestionEstudiantesApp/crearInscripcion.html')

@@ -4,9 +4,9 @@
 {% endblock titulo %}
     
 {% block contenido %}
-
+<a href="{% url 'crear_estudiante' %}"></a>
 {% for estudiante in estudiantes %}
-<li>{{estudiante}}</li>
+<a href="{% url 'editar_estudiante' pk=estudiante.pk %}"><li>{{estudiante}}</li></a>
 {% endfor %}
 
 {% endblock contenido %}

@@ -4,9 +4,9 @@
 {% endblock titulo %}
     
 {% block contenido %}
-
+<a href="{% url 'crear_inscripcion' %}"></a>
 {% for inscripcion in inscripciones %}
-<li>{{inscripcion}}</li>
+<a href="{% url 'editar_inscripcion' pk=inscripcion.pk %}"><li>{{inscripcion}}</li></a>
 {% endfor %}
 
 {% endblock contenido %}
