@@ -1,0 +1,11 @@
+{% extends 'gestionEstudiantesApp/base.html' %}
+{% block titulo %}
+    PRINCIPAL
+{% endblock titulo %}
+
+    {% block contenido %}
+        <a href="{% url 'listar_cursos' %}"><h1>CURSOS</h1></a>
+        <a href="{% url 'listar_estudiantes' %}"><h1>ESTUDIANTES</h1></a>
+        <a href="{% url 'listar_inscripciones' %}"><h1>INSCRIPCIONES</h1></a>
+    {% endblock contenido %}
+    

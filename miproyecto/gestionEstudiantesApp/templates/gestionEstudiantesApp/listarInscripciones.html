@@ -1,0 +1,12 @@
+
+{% block titulo %}
+    LISTADO INSCRIPCIONES
+{% endblock titulo %}
+    
+{% block contenido %}
+
+{% for inscripcion in inscripciones %}
+<li>{{inscripcion}}</li>
+{% endfor %}
+
+{% endblock contenido %}

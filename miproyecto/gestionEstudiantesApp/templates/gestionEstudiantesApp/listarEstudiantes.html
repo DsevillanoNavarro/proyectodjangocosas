@@ -1,0 +1,12 @@
+
+{% block titulo %}
+    LISTADO ESTUDIANTES
+{% endblock titulo %}
+    
+{% block contenido %}
+
+{% for estudiante in estudiantes %}
+<li>{{estudiante}}</li>
+{% endfor %}
+
+{% endblock contenido %}
