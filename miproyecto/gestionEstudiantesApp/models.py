@@ -40,6 +40,8 @@ class Inscripcion(models.Model):
             raise ValidationError("El curso al que intenta inscribirse ha terminado")
         if self.fecha_inscripcion > date.today():
             raise ValidationError("La fecha de inscripcion tiene que ser anterior al día actual")
+        if Inscripcion.objects.filter(estudiante= self.estudiante,curso=self.curso).exclude(id=self.id).exists():
+            raise ValidationError("Ya está creado")
         return super().clean()
     def __str__(self):
         return self.estudiante.nombre +"  "+ self.curso.nombre
